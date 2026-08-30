@@ -6,7 +6,6 @@ import Button from '@material-ui/core/Button'
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
 import CircularProgress from '@material-ui/core/CircularProgress'
-import Link from '@material-ui/core/Link'
 import TextField from '@material-ui/core/TextField'
 import { ThemeProvider, makeStyles } from '@material-ui/core/styles'
 import {
@@ -23,7 +22,6 @@ import Notification from './Notification'
 import useCurrentTheme from '../themes/useCurrentTheme'
 import config from '../config'
 import { clearQueue } from '../actions'
-import { INSIGHTS_DOC_URL } from '../consts.js'
 
 const useStyles = makeStyles(
   (theme) => ({
@@ -39,9 +37,15 @@ const useStyles = makeStyles(
       backgroundPosition: 'center',
     },
     card: {
-      minWidth: 300,
+      minWidth: 320,
       marginTop: '6em',
       overflow: 'visible',
+      backgroundColor: 'rgba(28, 28, 30, 0.78) !important',
+      backdropFilter: 'blur(16px)',
+      WebkitBackdropFilter: 'blur(16px)',
+      border: '1px solid rgba(255, 255, 255, 0.14)',
+      borderRadius: theme.shape.borderRadius * 2,
+      boxShadow: '0 16px 40px 0 rgba(0, 0, 0, 0.6)',
     },
     avatar: {
       margin: '1em',
@@ -187,62 +191,6 @@ const FormLogin = ({ loading, handleSubmit, validate }) => {
   )
 }
 
-const InsightsNotice = ({ url }) => {
-  const translate = useTranslate()
-  const classes = useStyles()
-
-  const anchorRegex = /\[(.+?)]/g
-  const originalMsg = translate('ra.auth.insightsCollectionNote')
-
-  // Split the entire message on newlines
-  const lines = originalMsg.split('\n')
-
-  const renderedLines = lines.map((line, lineIndex) => {
-    const segments = []
-    let lastIndex = 0
-    let match
-
-    // Find bracketed text in each line
-    while ((match = anchorRegex.exec(line)) !== null) {
-      // match.index is where "[something]" starts
-      // match[1] is the text inside the brackets
-      const bracketText = match[1]
-
-      // Push the text before the bracket
-      segments.push(line.slice(lastIndex, match.index))
-
-      // Push the <Link> component
-      segments.push(
-        <Link
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          key={`${lineIndex}-${match.index}`}
-          style={{ cursor: 'pointer' }}
-        >
-          {bracketText}
-        </Link>,
-      )
-
-      // Update lastIndex to the character right after the bracketed text
-      lastIndex = match.index + match[0].length
-    }
-
-    // Push the remaining text after the last bracket
-    segments.push(line.slice(lastIndex))
-
-    // Return this line’s parts, plus a <br/> if not the last line
-    return (
-      <React.Fragment key={lineIndex}>
-        {segments}
-        {lineIndex < lines.length - 1 && <br />}
-      </React.Fragment>
-    )
-  })
-
-  return <div className={classes.message}>{renderedLines}</div>
-}
-
 const FormSignUp = ({ loading, handleSubmit, validate }) => {
   const translate = useTranslate()
   const classes = useStyles()
@@ -307,7 +255,6 @@ const FormSignUp = ({ loading, handleSubmit, validate }) => {
                   {translate('ra.auth.buttonCreateAdmin')}
                 </Button>
               </CardActions>
-              <InsightsNotice url={INSIGHTS_DOC_URL} />
             </Card>
             <Notification />
           </div>
