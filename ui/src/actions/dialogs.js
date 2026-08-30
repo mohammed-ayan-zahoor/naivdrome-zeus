@@ -16,6 +16,8 @@ export const DOWNLOAD_MENU_PLAY = 'playlist'
 export const DOWNLOAD_MENU_SONG = 'song'
 export const SHARE_MENU_OPEN = 'SHARE_MENU_OPEN'
 export const SHARE_MENU_CLOSE = 'SHARE_MENU_CLOSE'
+export const UPLOAD_MUSIC_OPEN = 'UPLOAD_MUSIC_OPEN'
+export const UPLOAD_MUSIC_CLOSE = 'UPLOAD_MUSIC_CLOSE'
 
 export const openShareMenu = (ids, resource, name, label) => ({
   type: SHARE_MENU_OPEN,
@@ -85,4 +87,12 @@ export const openSaveQueueDialog = () => ({
 
 export const closeSaveQueueDialog = () => ({
   type: SAVE_QUEUE_CLOSE,
+})
+
+export const openUploadMusic = () => ({
+  type: UPLOAD_MUSIC_OPEN,
+})
+
+export const closeUploadMusic = () => ({
+  type: UPLOAD_MUSIC_CLOSE,
 })

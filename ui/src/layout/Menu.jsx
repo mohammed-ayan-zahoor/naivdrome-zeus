@@ -1,16 +1,18 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Divider, makeStyles } from '@material-ui/core'
 import clsx from 'clsx'
 import { useTranslate, MenuItemLink, getResources } from 'react-admin'
 import ViewListIcon from '@material-ui/icons/ViewList'
 import AlbumIcon from '@material-ui/icons/Album'
+import { MdCloudUpload } from 'react-icons/md'
 import SubMenu from './SubMenu'
 import { humanize, pluralize } from 'inflection'
 import albumLists from '../album/albumLists'
 import PlaylistsSubMenu from './PlaylistsSubMenu'
 import LibrarySelector from '../common/LibrarySelector'
 import config from '../config'
+import { openUploadMusic } from '../actions'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -48,6 +50,7 @@ const translatedResourceName = (resource, translate) =>
 
 const Menu = ({ dense = false }) => {
   const open = useSelector((state) => state.admin.ui.sidebarOpen)
+  const dispatch = useDispatch()
   const translate = useTranslate()
   const queue = useSelector((state) => state.player?.queue)
   const classes = useStyles({ addPadding: queue.length > 0 })
@@ -126,6 +129,17 @@ const Menu = ({ dense = false }) => {
         )}
       </SubMenu>
       {resources.filter(subItems(undefined)).map(renderResourceMenuItemLink)}
+      <MenuItemLink
+        to="/#"
+        onClick={(e) => {
+          e.preventDefault()
+          dispatch(openUploadMusic())
+        }}
+        primaryText="Upload Music"
+        leftIcon={<MdCloudUpload size={20} />}
+        sidebarIsOpen={open}
+        dense={dense}
+      />
       {config.devSidebarPlaylists && open ? (
         <>
           <Divider />

@@ -29,7 +29,7 @@ export default defineConfig({
     host: true,
     port: frontendPort,
     proxy: {
-      '^/(auth|api|rest|backgrounds)/.*': 'http://localhost:' + backendPort,
+      '^/(auth|api|rest|backgrounds)/.*': 'http://127.0.0.1:' + backendPort,
     },
   },
   base: './',

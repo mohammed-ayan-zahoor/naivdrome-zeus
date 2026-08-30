@@ -17,6 +17,8 @@ import {
   SAVE_QUEUE_CLOSE,
   SHARE_MENU_OPEN,
   SHARE_MENU_CLOSE,
+  UPLOAD_MUSIC_OPEN,
+  UPLOAD_MUSIC_CLOSE,
 } from '../actions'
 
 export const shareDialogReducer = (
@@ -181,6 +183,21 @@ export const saveQueueDialogReducer = (
     case SAVE_QUEUE_OPEN:
       return { ...previousState, open: true }
     case SAVE_QUEUE_CLOSE:
+      return { ...previousState, open: false }
+    default:
+      return previousState
+  }
+}
+
+export const uploadMusicDialogReducer = (
+  previousState = { open: false },
+  payload,
+) => {
+  const { type } = payload
+  switch (type) {
+    case UPLOAD_MUSIC_OPEN:
+      return { ...previousState, open: true }
+    case UPLOAD_MUSIC_CLOSE:
       return { ...previousState, open: false }
     default:
       return previousState

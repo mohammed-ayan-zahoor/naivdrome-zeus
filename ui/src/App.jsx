@@ -39,6 +39,7 @@ import {
   downloadMenuDialogReducer,
   shareDialogReducer,
   transcodingReducer,
+  uploadMusicDialogReducer,
 } from './reducers'
 import createAdminStore from './store/createAdminStore'
 import { i18nProvider, retrieveTranslation } from './i18n'
@@ -80,6 +81,7 @@ const adminStore = createAdminStore({
     settings: settingsReducer,
     replayGain: replayGainReducer,
     transcoding: transcodingReducer,
+    uploadMusicDialog: uploadMusicDialogReducer,
   },
 })
 
