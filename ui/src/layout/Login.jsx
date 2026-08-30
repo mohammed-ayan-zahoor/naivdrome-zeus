@@ -17,6 +17,7 @@ import {
   useVersion,
 } from 'react-admin'
 import Logo from '../icons/android-icon-192x192.png'
+import LoginBg from '../icons/login-bg.jpg'
 
 import Notification from './Notification'
 import useCurrentTheme from '../themes/useCurrentTheme'
@@ -32,7 +33,7 @@ const useStyles = makeStyles(
       minHeight: '100vh',
       alignItems: 'center',
       justifyContent: 'flex-start',
-      background: `url(${config.loginBackgroundURL})`,
+      background: `url(${LoginBg})`,
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
