@@ -17,7 +17,7 @@ require (
 	github.com/dexterlb/mpvipc v0.0.0-20260722094525-0cf47d745b36
 	github.com/djherbis/atime v1.1.0
 	github.com/djherbis/fscache v0.10.2-0.20231127215153-442a07e326c4
-	github.com/djherbis/stream v1.5.0
+	github.com/djherbis/stream v1.5.1
 	github.com/djherbis/times v1.6.0
 	github.com/dustin/go-humanize v1.0.1
 	github.com/extism/go-sdk v1.7.1
