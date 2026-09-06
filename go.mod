@@ -1,6 +1,6 @@
 module github.com/navidrome/navidrome
 
-go 1.26
+go 1.26.0
 
 // Fork to implement raw tags support
 replace go.senan.xyz/taglib => github.com/deluan/go-taglib v0.0.0-20260720134629-a133b9719ea3
@@ -47,7 +47,7 @@ require (
 	github.com/pelletier/go-toml/v2 v2.4.3
 	github.com/pmezard/go-difflib v1.0.0
 	github.com/pocketbase/dbx v1.12.0
-	github.com/pressly/goose/v3 v3.27.3
+	github.com/pressly/goose/v3 v3.28.0
 	github.com/prometheus/client_golang v1.24.1
 	github.com/rjeczalik/notify v0.9.3
 	github.com/robfig/cron/v3 v3.0.1
@@ -117,7 +117,7 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/prometheus/client_model v0.6.2 // indirect
 	github.com/prometheus/common v0.70.1 // indirect
-	github.com/prometheus/procfs v0.21.1 // indirect
+	github.com/prometheus/procfs v0.22.0 // indirect
 	github.com/rogpeppe/go-internal v1.16.0 // indirect
 	github.com/sagikazarmark/locafero v0.12.0 // indirect
 	github.com/sanity-io/litter v1.5.8 // indirect
