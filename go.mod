@@ -10,7 +10,7 @@ replace github.com/djherbis/fscache => github.com/deluan/fscache v0.9.1-0.202608
 
 require (
 	github.com/Masterminds/squirrel v1.5.4
-	github.com/andybalholm/cascadia v1.3.4
+	github.com/andybalholm/cascadia v1.3.5
 	github.com/bmatcuk/doublestar/v4 v4.10.0
 	github.com/deluan/rest v0.0.0-20211102003136-6260bc399cbf
 	github.com/deluan/sanitize v0.0.0-20241120162836-fdfd8fdfaa55
